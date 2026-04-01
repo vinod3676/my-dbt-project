@@ -1,3 +1,4 @@
+-- test ci run
 SELECT
     ORDER_ID,
     CUSTOMER_ID,
