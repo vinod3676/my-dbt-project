@@ -1,0 +1,7 @@
+SELECT
+    ORDER_ID,
+    CUSTOMER_ID,
+    ORDER_DATE,
+    UPPER(TRIM(ORDER_STATUS)) AS ORDER_STATUS,
+    ORDER_AMOUNT
+FROM {{ source('raw', 'orders') }}

@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: raw
+    database: MY_NEW_DATABASE
+    schema: RAW
+    tables:
+      - name: orders
+
+models:
+  - name: stg_orders
+    description: "Cleaned staging view for orders."
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+      - name: ORDER_STATUS
+        tests:
+          - not_null
+
+  - name: fct_orders
+    description: "Fact-style table for orders."
+    columns:
+      - name: ORDER_ID
+        tests:
+          - unique
+          - not_null
